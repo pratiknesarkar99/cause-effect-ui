@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CauseEffect</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>CauseEffect</h1>
+    <span class="header-tag">Contacts</span>
+  </header>
+
+  <div class="app-layout">
+
+    <!-- Summary Pane -->
+    <aside class="summary-pane" aria-label="Contact list">
+      <p class="pane-label">People</p>
+      <ul id="contact-list" role="listbox" aria-label="Select a contact"></ul>
+    </aside>
+
+    <!-- Detail Pane -->
+    <main id="detail-pane" class="detail-pane" aria-live="polite" aria-label="Contact details">
+      <div class="detail-placeholder">
+        <div class="placeholder-icon">☰</div>
+        <p>Select a name to view their details</p>
+      </div>
+    </main>
+
+  </div>
+
+  <!--
+    type="module" enables:
+    - ES module imports/exports
+    - Deferred execution by default (no need for defer attribute)
+    - Strict mode automatically
+  -->
+  <script type="module" src="./js/main.js"></script>
+
+</body>
+</html>

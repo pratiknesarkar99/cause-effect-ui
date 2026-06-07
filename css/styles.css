@@ -1,0 +1,271 @@
+/* ============================================================
+   styles.css
+   Uses: CSS custom properties, CSS nesting, :has() selector
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Design Tokens ────────────────────────────────────────── */
+:root {
+  --color-bg:           #0f0f0f;
+  --color-surface:      #1a1a1a;
+  --color-surface-alt:  #222222;
+  --color-border:       #2e2e2e;
+  --color-accent:       #c8f060;
+  --color-accent-dim:   #a8cc44;
+  --color-text-primary: #f0f0f0;
+  --color-text-muted:   #888888;
+  --color-selected-bg:  #1e2a0a;
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+
+  --transition-fast: 140ms ease;
+  --transition-med:  220ms ease;
+
+  --summary-width: 260px;
+}
+
+/* ── Reset & Base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── App Shell ────────────────────────────────────────────── */
+.app-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+
+  & h1 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  & .header-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: var(--color-selected-bg);
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+}
+
+.app-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: calc(100vh - 73px);
+}
+
+/* ── Summary Pane ─────────────────────────────────────────── */
+.summary-pane {
+  width: var(--summary-width);
+  min-width: var(--summary-width);
+  border-right: 1px solid var(--color-border);
+  overflow-y: auto;
+  padding: 16px 0;
+
+  & .pane-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding: 0 20px 12px;
+  }
+}
+
+/* ── Contact List ─────────────────────────────────────────── */
+#contact-list {
+  list-style: none;
+
+  & li {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    transition:
+      color var(--transition-fast),
+      background var(--transition-fast),
+      border-color var(--transition-fast);
+
+    /* Hover state */
+    &:hover {
+      color: var(--color-text-primary);
+      background: var(--color-surface);
+    }
+
+    /* Selected state (different from hover) */
+    &.selected {
+      color: var(--color-accent);
+      background: var(--color-selected-bg);
+      border-left-color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* Focus visible for keyboard nav */
+    &:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: -2px;
+    }
+  }
+}
+
+/* ── Detail Pane ──────────────────────────────────────────── */
+.detail-pane {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  transition: background var(--transition-med);
+
+  /* :has() — style the pane itself based on its content state */
+  &:has(.detail-card) {
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: var(--color-bg);
+  }
+}
+
+/* Placeholder shown before any selection */
+.detail-placeholder {
+  text-align: center;
+  color: var(--color-text-muted);
+
+  & .placeholder-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    opacity: 0.4;
+  }
+
+  & p {
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+}
+
+/* ── Detail Card ──────────────────────────────────────────── */
+.detail-card {
+  width: 100%;
+  max-width: 480px;
+  animation: slideIn var(--transition-med) ease forwards;
+
+  & .detail-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    background: var(--color-selected-bg);
+    border: 1px solid var(--color-accent-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  & .detail-name {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    line-height: 1.1;
+  }
+}
+
+/* ── Detail Fields ────────────────────────────────────────── */
+.detail-fields {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  & .detail-field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 14px 16px;
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+
+    & .field-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    & .field-value {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--color-text-primary);
+    }
+  }
+}
+
+/* ── Error State ──────────────────────────────────────────── */
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+/* ── Animation ────────────────────────────────────────────── */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Scrollbar Styling ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}

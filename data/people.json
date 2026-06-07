@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Amara Osei",
+    "street": "412 Magnolia Drive",
+    "city": "Austin",
+    "state": "TX",
+    "country": "USA",
+    "telephone": "+1 (512) 384-7291",
+    "birthday": "March 14, 1991"
+  },
+  {
+    "name": "Lena Vasquez",
+    "street": "88 Crescent Lane",
+    "city": "Denver",
+    "state": "CO",
+    "country": "USA",
+    "telephone": "+1 (720) 519-3047",
+    "birthday": "July 22, 1988"
+  },
+  {
+    "name": "Kenji Mori",
+    "street": "3 Hillside Court",
+    "city": "Portland",
+    "state": "OR",
+    "country": "USA",
+    "telephone": "+1 (503) 672-8814",
+    "birthday": "November 5, 1995"
+  },
+  {
+    "name": "Priya Nair",
+    "street": "201 Elm Street",
+    "city": "Chicago",
+    "state": "IL",
+    "country": "USA",
+    "telephone": "+1 (312) 904-5523",
+    "birthday": "February 9, 1993"
+  },
+  {
+    "name": "Marcus Delgado",
+    "street": "77 Sunset Blvd",
+    "city": "Los Angeles",
+    "state": "CA",
+    "country": "USA",
+    "telephone": "+1 (213) 748-0962",
+    "birthday": "September 30, 1986"
+  },
+  {
+    "name": "Sofia Lindqvist",
+    "street": "14 Birchwood Ave",
+    "city": "Seattle",
+    "state": "WA",
+    "country": "USA",
+    "telephone": "+1 (206) 431-7758",
+    "birthday": "January 17, 1990"
+  },
+  {
+    "name": "Tobias Mensah",
+    "street": "560 Oak Ridge Road",
+    "city": "Atlanta",
+    "state": "GA",
+    "country": "USA",
+    "telephone": "+1 (404) 883-2214",
+    "birthday": "June 3, 1997"
+  },
+  {
+    "name": "Yuki Tanaka",
+    "street": "29 Maple Street",
+    "city": "Boston",
+    "state": "MA",
+    "country": "USA",
+    "telephone": "+1 (617) 265-9103",
+    "birthday": "December 11, 1992"
+  },
+  {
+    "name": "Chiara Romano",
+    "street": "118 Lakeview Terrace",
+    "city": "Miami",
+    "state": "FL",
+    "country": "USA",
+    "telephone": "+1 (305) 720-4481",
+    "birthday": "April 28, 1989"
+  },
+  {
+    "name": "Rajan Patel",
+    "street": "45 Cedar Way",
+    "city": "Houston",
+    "state": "TX",
+    "country": "USA",
+    "telephone": "+1 (713) 596-3370",
+    "birthday": "August 16, 1994"
+  }
+]
